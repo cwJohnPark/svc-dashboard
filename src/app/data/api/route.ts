@@ -17,7 +17,9 @@ export async function GET() {
   // data["Boolean 3"] = Math.random() > 0.5;
   // // convert ApiDataModel to ChartDataModel
   // fetch to /SCV_Dummy/SCV_Data
-  const response = await fetch("http://localhost/SCV_Dummy/SCV_Data");
+  const response = await fetch("http://localhost/SCV_Dummy/SCV_Data", 
+    { cache: "no-store"}
+  );
   const data: ApiDataModel = await response.json();
 
   const samples: LineChartData[] = data["Large Data 100ms 10000Samples"].map(
@@ -40,7 +42,7 @@ export async function GET() {
     samples: samples,
   };
 
-  console.log("Fetched data", revisedData["String 1"]);
+  console.log(`Fetched data (${Date()})`, revisedData["String 1"]);
 
   return Response.json(revisedData, {
     status: 200,
