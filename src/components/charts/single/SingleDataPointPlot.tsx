@@ -20,14 +20,14 @@ export default function SingleDataPointPlot<T>({
   return (
     <div
       key={String(value)}
-      className="py-4 px-8 mx-2 w-full bg-stone-100 dark:bg-slate-800 shadow rounded"
+      className="py-2 px-4 mx-2 w-full bg-stone-100 dark:bg-slate-800 shadow rounded"
     >
       <div className="pt-2">
-        <p className="font-light text-lg text-slate-800 dark:text-white">
+        <p className="font-light text-md text-slate-800 dark:text-white">
           {label}
         </p>
         <p
-          className={`py-4 text-3xl text-slate-700 dark:text-white dark:hover:text-white 
+          className={`py-4 text-xl text-slate-700 dark:text-white dark:hover:text-white 
 						animate-toggleIn`}
         >
           {String(value ?? "0")}
