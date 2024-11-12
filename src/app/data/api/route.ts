@@ -32,8 +32,16 @@ export async function GET() {
 
   const revisedData: ChartDataModel = {
     ...data,
+    "Data 1": round(data["Data 1"]),
+    "Data 2": round(data["Data 2"]),
+    "Data 3": round(data["Data 3"]),
+    "Data 4": round(data["Data 4"]),
+    "Data 5": round(data["Data 5"]),
+    "Data 6": round(data["Data 6"]),
     samples: samples,
   };
+
+  console.log("Fetched data", revisedData["String 1"])
 
   return Response.json(revisedData, {
     status: 200,

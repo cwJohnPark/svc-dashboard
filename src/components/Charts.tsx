@@ -16,7 +16,6 @@ const Charts = () => {
   };
 
   useEffect(() => {
-    console.log("Rendering Charts");
     fetchData();
     const interval = setInterval(fetchData, 3000);
 
