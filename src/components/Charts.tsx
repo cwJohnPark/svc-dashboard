@@ -4,13 +4,14 @@ import React, { useEffect, useState } from "react";
 import LineChartPlot from "@/components/charts/LineChartPlot";
 import SingleDataPointPlot from "./charts/single/SingleDataPointPlot";
 import { ChartDataModel } from "@/app/libs/model";
-import { TransitionGroup } from "react-transition-group";
 
 const Charts = () => {
   const [data, setData] = useState<ChartDataModel>();
 
   const fetchData = async () => {
-    const response = await fetch("/data/api");
+    const response = await fetch("/data/api", {
+      cache: "no-store",
+    });
     const data = await response.json();
     setData(data);
   };

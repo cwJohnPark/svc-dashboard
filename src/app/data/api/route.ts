@@ -1,5 +1,4 @@
 import { ApiDataModel, ChartDataModel, LineChartData } from "@/app/libs/model";
-import { promises as fs } from "fs";
 
 export async function GET() {
   // const file = await fs.readFile(
@@ -25,7 +24,7 @@ export async function GET() {
     (sample, i) => {
       return {
         value: sample,
-        index: i+1,
+        index: i + 1,
       };
     }
   );
@@ -41,7 +40,7 @@ export async function GET() {
     samples: samples,
   };
 
-  console.log("Fetched data", revisedData["String 1"])
+  console.log("Fetched data", revisedData["String 1"]);
 
   return Response.json(revisedData, {
     status: 200,
