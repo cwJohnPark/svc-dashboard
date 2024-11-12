@@ -1,5 +1,6 @@
 "use client";
 
+import { Square3Stack3DIcon } from "@heroicons/react/24/outline";
 import React, { useState } from "react";
 
 const DropDownMenuIcon = ({ isOpen }: { isOpen: boolean }) => {
@@ -58,6 +59,7 @@ const DropDownMenu = () => {
         className="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group hover:bg-gray-500 dark:text-white dark:hover:bg-gray-700"
         onClick={toggleMenu}
       >
+        <Square3Stack3DIcon className="size-6 text-slate-700" />
         <span className="flex-1 ml-3 text-left whitespace-nowrap">Pages</span>
         <DropDownMenuIcon isOpen={isOpen} />
       </button>

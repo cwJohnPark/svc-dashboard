@@ -8,20 +8,20 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer,
+  Label,
 } from "recharts";
 
 const LineChartPlot = ({ data }: { data: LineChartData[] }) => {
-  useEffect(() => {
-    console.log("Rendering Line Chart", data);
-  }, [data]);
-
   function getTicks(data: LineChartData[]): number[] {
-    console.log(data.length);
+    // range divided by 5
     return [0, 2000, 4000, 6000, 8000, 10000];
   }
 
   return (
     <>
+      <div className="font-light text-2xl px-12 pb-8">
+        Large Data 100ms 10,000 samples
+      </div>
       <ResponsiveContainer width="100%" height="100%">
         <LineChart
           width={500}
@@ -36,19 +36,24 @@ const LineChartPlot = ({ data }: { data: LineChartData[] }) => {
         >
           <XAxis
             dataKey={"index"}
-            tickMargin={8}
+            tickMargin={12}
             interval={"preserveStartEnd"}
             axisLine={true}
             ticks={getTicks(data)}
+          >
+            {" "}
+            <Label value="Time(ms)" offset={0} position="insideBottom" />
+          </XAxis>
+
+          <YAxis
+            label={{ value: "Amplitude", angle: -90, position: "insideLeft" }}
           />
-          <YAxis />
           <Tooltip />
-          <Legend />
           <Line
             dot={false}
             type="monotone"
             dataKey="value"
-            stroke="#8884d8"
+            stroke="#000000"
             strokeWidth={1}
           />
         </LineChart>

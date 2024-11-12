@@ -1,16 +1,14 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { Roboto } from "next/font/google";
+import SidebarProvider from "@/components/sidebar/context";
+import Sidebar from "@/components/sidebar/Sidebar";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const roboto = Roboto({
+  subsets: ["latin"],
+  variable: "--roboto",
+  weight: ["100", "300", "400", "500"],
 });
 
 export const metadata: Metadata = {
@@ -25,10 +23,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${roboto.className} antialiased`}>
+        <SidebarProvider>
+          <Sidebar />
+          <section className="ml-4 mr-12">{children}</section>
+        </SidebarProvider>
       </body>
     </html>
   );

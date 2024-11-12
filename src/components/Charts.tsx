@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import LineChartPlot from "@/components/charts/LineChartPlot";
 import SingleDataPointPlot from "./charts/single/SingleDataPointPlot";
 import { ChartDataModel } from "@/app/libs/model";
+import { TransitionGroup } from "react-transition-group";
 
 const Charts = () => {
   const [data, setData] = useState<ChartDataModel>();
@@ -17,7 +18,7 @@ const Charts = () => {
   useEffect(() => {
     console.log("Rendering Charts");
     fetchData();
-    const interval = setInterval(fetchData, 5000);
+    const interval = setInterval(fetchData, 3000);
 
     return () => clearInterval(interval);
   }, []);
@@ -25,7 +26,7 @@ const Charts = () => {
   return (
     <>
       <section>
-        <div className="flex m-4 gap-2">
+        <div className="flex flex-row justify-between my-4">
           <SingleDataPointPlot label="Data 1" value={data?.["Data 1"]} />
           <SingleDataPointPlot label="Data 2" value={data?.["Data 2"]} />
           <SingleDataPointPlot label="Data 3" value={data?.["Data 3"]} />
@@ -35,7 +36,7 @@ const Charts = () => {
         </div>
       </section>
       <section>
-        <div className="flex m-4 gap-2">
+        <div className="flex flex-row justify-between my-6">
           <SingleDataPointPlot
             label="Boolean 1"
             value={data?.["Boolean 1"] ? "True" : "False"}
@@ -52,8 +53,8 @@ const Charts = () => {
         </div>
       </section>
 
-      <section className="flex my-4 px-4 gap-2">
-        <div className="w-full h-[540px] bg-slate-800 rounded">
+      <section className="flex my-4 mx-2 px-4 gap-2">
+        <div className="w-full h-[560px] pt-8 pb-24 bg-stone-100 dark:bg-slate-800 shadow rounded">
           <LineChartPlot data={data?.samples ?? []} />
         </div>
       </section>

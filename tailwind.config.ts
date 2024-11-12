@@ -8,12 +8,21 @@ const config: Config = {
   ],
   theme: {
     fontFamily: {
-      sans: ["sans-serif", "Arial", "Helvetica"],
+      roboto: ["var(--roboto)", "sans-serif"],
     },
     extend: {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+      },
+      animation: {
+        toggleIn: "fadeIn 0.6s ease-out",
+      },
+      keyframes: {
+        fadeIn: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
       },
     },
   },
