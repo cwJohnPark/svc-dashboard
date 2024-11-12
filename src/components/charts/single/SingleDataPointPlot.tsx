@@ -20,7 +20,7 @@ export default function SingleDataPointPlot<T>({
   return (
     <div
       key={String(value)}
-      className="py-4 px-8 mx-6 w-full bg-stone-100 dark:bg-slate-800 shadow rounded"
+      className="py-4 px-8 mx-2 w-full bg-stone-100 dark:bg-slate-800 shadow rounded"
     >
       <div className="pt-2">
         <p className="font-light text-lg text-slate-800 dark:text-white">
